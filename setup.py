@@ -12,7 +12,7 @@ setup(
     version = '1.0.0',
     author='stone',
     author_email = 'aiolang.python@gmail.com',
-    description = 'This is an unofficial library and fastest library for deploying robots on Rubika accounts.',
+    description = 'A fast and asynchronous text translator library for personal use and frameworks.',
     keywords = ['translate', 'aiolang', 'aio', 'lang', 'google', 'asyncio'],
     long_description = readme,
     python_requires="~=3.9",
