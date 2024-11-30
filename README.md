@@ -18,14 +18,26 @@ import asyncio
 from aiolang import Translate
 
 async def main():
-    translator = Translate()
-    request = await translator.translate("Hello, World!", "FA")
-    print(request)
+    async with Translate() as translate:
+        request = await translate.translate("Hello, World!", "KO")
+        print(request)
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+```python
+import asyncio
+from aiolang import Translate
+
+async def main():
+    translate = Translate()
+    request = await translate("Hello, World!", "KO")
+    print(request)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
 ---
 
 ### Key Features
