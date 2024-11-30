@@ -1,5 +1,5 @@
+from typing import Dict
 import aiohttp
-import asyncio
 
 
 class GoogleAPI:
@@ -7,12 +7,12 @@ class GoogleAPI:
 
     GOOGLE_TRANSLATE_URL = "https://translate.googleapis.com/translate_a/single"
 
-    def __init__(self, text: str, target_lang: str = "en", source_lang: str = "auto"):
+    def __init__(self, text: str, target_lang: str, source_lang: str = "auto"):
         """Initializes the GoogleAPI class.
 
         Args:
             text (str): The text to be translated.
-            target_lang (str): The target language code (default is 'en').
+            target_lang (str): The target language code.
             source_lang (str): The source language code (default is 'auto').
 
         Raises:
@@ -25,7 +25,7 @@ class GoogleAPI:
         self.source_lang = source_lang
         self.target_lang = target_lang
 
-    def _prepare_params(self):
+    def _prepare_params(self) -> Dict[str, str]:
         """Prepares the request parameters for Google Translate API.
 
         Returns:
@@ -39,7 +39,7 @@ class GoogleAPI:
             "q": self.text
         }
 
-    async def _send_request(self, params: dict):
+    async def _send_request(self, params: Dict[str, str]) -> Dict:
         """Sends the request to the Google Translate API asynchronously.
 
         Args:
