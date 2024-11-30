@@ -12,7 +12,7 @@
 ---
 
 ### Example Usage
-#### Muddle 1
+#### Model 1
 ```python
 import asyncio
 from aiolang import Translate
@@ -25,7 +25,7 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-#### Muddle 2
+#### Model 2
 ```python
 import asyncio
 from aiolang import Translate
