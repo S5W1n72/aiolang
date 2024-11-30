@@ -64,5 +64,5 @@ pip3 install -U aiolang
 - [telegram](https://t.me/aiolang)
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/S5W1n72/aiolang/refs/heads/main/cover.png" alt="cover", width="1080">
+<img src="https://raw.githubusercontent.com/S5W1n72/aiolang/refs/heads/main/cover.png" alt="cover", width="360">
 </p>
