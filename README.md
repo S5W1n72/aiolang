@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
 ### Install
 
-```python
+```bash
 pip3 install -U aiolang
 ```
 
