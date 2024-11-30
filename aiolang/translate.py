@@ -2,7 +2,6 @@ from .google import GoogleAPI
 from .langs import Langs
 from .exceptions import TranslationError
 
-
 class Translate:
     """Handles translation requests to Google Translate."""
 
@@ -10,20 +9,23 @@ class Translate:
         """Initializes the Translate class."""
         pass
 
-    async def translate(self, text: str, target_lang: str, source_lang: str = "auto") -> str:
-        """Translates text to the target language.
+    async def __aenter__(self):
+        """Called when entering an async context (async with)."""
+        return self
 
-        Args:
-            text (str): The text to translate.
-            target_lang (str): The target language code.
-            source_lang (str): The source language code (default is 'auto').
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        """Called when exiting an async context (async with)."""
+        pass
 
-        Returns:
-            str: The translated text.
-
-        Raises:
-            TranslationError: If the input is invalid or translation fails.
+    async def __call__(self, text: str, target_lang: str, source_lang: str = "auto") -> str:
         """
+        Allows the Translate object to be used as a callable function.
+        This method translates the text to the target language when called directly.
+        """
+        return await self.translate(text, target_lang, source_lang)
+
+    async def translate(self, text: str, target_lang: str, source_lang: str = "auto") -> str:
+        """Translates text to the target language."""
         if not isinstance(text, str) or not text:
             raise TranslationError(
                 "Input text must be a non-empty string.", solution="Please provide a valid string."
@@ -35,7 +37,6 @@ class Translate:
                 solution="Please provide text with fewer than 5000 characters."
             )
 
-        # Check if the target and source languages are supported
         supported_languages = Langs.SUPPORTED_LANGUAGES
         if target_lang.lower() not in supported_languages:
             raise TranslationError(
@@ -50,7 +51,6 @@ class Translate:
             )
 
         try:
-            # Create GoogleAPI instance and get the translation
             api = GoogleAPI(text, target_lang, source_lang)
             return await api.translate()
         except Exception as error:
