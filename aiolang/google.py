@@ -55,7 +55,7 @@ class GoogleAPI:
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(self.GOOGLE_TRANSLATE_URL, params=params) as response:
-                    response.raise_for_status()  # Will raise an exception for 4xx/5xx responses
+                    response.raise_for_status()
                     return await response.json()
         except aiohttp.ClientError as err:
             raise ConnectionError(f"Network error occurred: {err}")
