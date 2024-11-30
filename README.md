@@ -1,5 +1,5 @@
 <p align="center">
-<img src="url" alt="icon" width="128">
+<img src=https://raw.githubusercontent.com/stone-404/aiolang/refs/heads/main/icon.png" alt="icon" width="128">
 <br>
 <b> Translate Google Framework For Python</b>
 </p>
@@ -51,5 +51,5 @@ pip3 install -U aiolang
 - [telegram](https://t.me/aiolang)
 
 <p align="center">
-<img src="cover.png" alt="cover" width="128">
+<img src="https://raw.githubusercontent.com/stone-404/aiolang/refs/heads/main/cover.png" alt="cover" width="128">
 </p>
