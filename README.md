@@ -15,7 +15,6 @@
 #### Model 1
 ```python
 import asyncio
-import asyncio
 from aiolang import Aiolang, TranslationError
 
 async def main():
